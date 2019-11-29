@@ -7,12 +7,13 @@ import java.util.Locale;
 public class FormatCurrencyLocale {
 
 /**
- * param --> int, double, string
- * FormatCurrencyLocale uangfr=new FormatCurrencyLocale();
-    String uangstr=uangfr.toRp(param);*/
+ * Standard IDR format
+ * param --> int/double/string
+ *
+    String uangstr=com.yogibali.FormatCurrencyLocale.toIDR(param);*/
 
 
-    public String toRp(double d) {
+    public static String toIDR(double d) {
         Locale localeID = new Locale("in", "ID");
         String _patern = "'Rp'#,##0.00";
         DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(localeID);
@@ -23,10 +24,10 @@ public class FormatCurrencyLocale {
         return _rupiah.format(d);
     }
 
-    public String toRp(String s) {
-        return toRp(Double.valueOf(s));
+    public static String toIDR(String s) {
+        return toIDR(Double.valueOf(s));
     }
-    public String toRp(int i) {
-        return toRp(Double.valueOf(i));
+    public static String toIDR(int i) {
+        return toIDR(Double.valueOf(i));
     }
 }
