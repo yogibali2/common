@@ -2,6 +2,7 @@ package com.yogibali.converter;
 
 import java.text.DecimalFormat;
 
+
 public class Num2WordID {
     /**
      * Converting Number into Indonesia Rupiah words.
