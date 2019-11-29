@@ -66,15 +66,15 @@ public class Num2WordID {
     }
 
     public static String convert(String s) {
-        return convert(Long.getLong(s));
+        return convert(Long.parseLong(s));
     }
 
     public static String convert(int i) {
-        return convert(Long.getLong(String.valueOf(i)));
+        return convert(Long.parseLong(String.valueOf(i)));
     }
 
     public static String convert(double i) {
-        return convert(Long.getLong(String.valueOf(i)));
+        return convert(Long.parseLong(String.valueOf(i)));
     }
 
     public static String convert(long number) {
@@ -82,11 +82,9 @@ public class Num2WordID {
         if (number == 0) {
             return "nol";
         }
-        String snumber = Long.toString(number);
-        // pad with "0"
         String mask = "000000000000";
         DecimalFormat df = new DecimalFormat(mask);
-        snumber = df.format(number);
+        String snumber = df.format(number);
 
         // XXXnnnnnnnnn
         int billions = Integer.parseInt(snumber.substring(0, 3));
@@ -102,10 +100,6 @@ public class Num2WordID {
             case 0:
                 tradBillions = "";
                 break;
-            case 1:
-                tradBillions = convertLessThanOneThousand(billions)
-                        + " milyar ";
-                break;
             default:
                 tradBillions = convertLessThanOneThousand(billions)
                         + " milyar ";
@@ -116,10 +110,6 @@ public class Num2WordID {
         switch (millions) {
             case 0:
                 tradMillions = "";
-                break;
-            case 1:
-                tradMillions = convertLessThanOneThousand(millions)
-                        + " juta ";
                 break;
             default:
                 tradMillions = convertLessThanOneThousand(millions)

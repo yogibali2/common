@@ -43,33 +43,29 @@ public class CurrencyLocaleIDR {
 
     // 2. Penulisan dengan Huruf
     public static String formatWordRp(long l) {
-        String _loc1 = Num2WordID.convert(l);
-        return _loc1;
+        return Num2WordID.convert(l) + " rupiah";
     }
 
     public static String formatWordRp(double d) {
-        String _loc1 = Num2WordID.convert(d);
-        return _loc1;
+        return Num2WordID.convert(d) + " rupiah";
     }
 
     public static String formatWordRp(String s) {
-        String _loc1 = Num2WordID.convert(s);
-        return _loc1;
+        return Num2WordID.convert(s) + " rupiah";
     }
 
     public static String formatWordRp(int i) {
-        String _loc1 = Num2WordID.convert(i);
-        return _loc1;
+        return Num2WordID.convert(i) + " rupiah";
     }
 
     // 3. Penggunaan IDR not test yet
     public static String formatIDR(double d) {
         Locale localeID = new Locale("in", "ID");
-        String _patern = "#.##0,00' IDR'";
+        String _patern = "#,##0.00' IDR'";
         DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(localeID);
         decimalFormatSymbols.setCurrencySymbol("IDR");
-        decimalFormatSymbols.setDecimalSeparator('.');
-        decimalFormatSymbols.setGroupingSeparator(',');
+        decimalFormatSymbols.setGroupingSeparator('.');
+        decimalFormatSymbols.setDecimalSeparator(',');
         DecimalFormat _rupiah = new DecimalFormat(_patern, decimalFormatSymbols);
         return _rupiah.format(d);
     }
